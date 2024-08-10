@@ -7,3 +7,12 @@ dqn_frostbite_test.zip
 dqn_frostbite_v2.zip
 dqn_frostbite_v3.zip
 dqn_frostbite_v4.zip
+video\dqn_frostbite_test-episode-0.meta.json
+video\dqn_frostbite_test-episode-0.mp4
+video\dqn_frostbite_v2-episode-0.meta.json
+video\dqn_frostbite_v2-episode-0.mp4
+video\dqn_frostbite_v3-episode-0.meta.json
+video\dqn_frostbite_v3-episode-0.mp4
+video\dqn_frostbite-episode-0.meta.json
+video\dqn_frostbite-episode-0.mp4
+cartpole-updated.ipynb
