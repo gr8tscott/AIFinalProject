@@ -1,1 +1,9 @@
 venv
+atari.py
+atariGame.py
+init.py
+dqn_frostbite.zip
+dqn_frostbite_test.zip
+dqn_frostbite_v2.zip
+dqn_frostbite_v3.zip
+dqn_frostbite_v4.zip

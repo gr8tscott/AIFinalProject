@@ -1,0 +1,9 @@
+gymnasium
+gymnasium[all]
+stable-baselines3[extra]
+matplotlib
+imageio
+numpy<2
+gym
+moviepy
+gymnasium[atari]
