@@ -7,20 +7,20 @@ from gymnasium.wrappers import RecordVideo
 import matplotlib.pyplot as plt
 import imageio
 
-
+# Create env with video recording
 env = gym.make('ALE/Frostbite-v5', render_mode='rgb_array')
 env = RecordVideo(env, video_folder="video", name_prefix="dqn_frostbite_v5", episode_trigger=lambda x: x == 0)
 
-# Load the pre-trained model
+# Load pre-trained model
 model = DQN.load("dqn_frostbite_v3", env=env)
 
-# Reset the environment and initialize variables
-mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=20)
-print(f"Final evaluation - Mean reward: {mean_reward} +/- {std_reward}")
+# Evaluate the model
+mean_rwd, std_rwd = evaluate_policy(model, env, n_eval_episodes=20)
+print(f"Final eval - Mean rwd: {mean_rwd} +/- {std_rwd}")
 
-# Set up the environment for recording the final video
+# Prepare env for recording video
 
-# Run the agent in the environment and record the video
+# Run agent and record
 obs, info = env.reset()
 done = False
 frames = []
@@ -29,17 +29,17 @@ while not done:
     action = model.predict(obs, deterministic=True)[0]
     obs, reward, terminated, truncated, info = env.step(action)
     
-    # Render the frame and add it to the list
+    # Render frame and append to list
     frame = env.render()
     if frame is not None:
         frames.append(frame)
     
     done = terminated or truncated
 
-env.close()  # Ensure environment is properly closed
+env.close()  # Close env properly
 
-# Save the frames as a GIF
+# Save as GIF
 if frames:
     imageio.mimsave('frostbite_agent_v5.gif', frames, fps=30)
 else:
-    print("No frames collected. GIF creation failed.")
+    print("No frames. GIF creation failed.")
